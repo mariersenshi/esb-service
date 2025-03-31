@@ -23,7 +23,7 @@ public class ESBController {
         }
         try {
             String response = webClient.post()
-                    .uri("http://soa_users.railway.internal/api/users/create")
+                    .uri("http://soa_users.railway.internal:3000/api/users/create")
                     .bodyValue(user)
                     .retrieve()
                     .bodyToMono(String.class)
@@ -42,7 +42,7 @@ public class ESBController {
         }
         try {
             String response = webClient.get()
-                    .uri("http://soa_users.railway.internal/api/users/")
+                    .uri("http://soa_users.railway.internal:3000/api/users/")
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
@@ -57,7 +57,7 @@ public class ESBController {
     public ResponseEntity<String> loginUser(@RequestBody Map<String, String> credentials) {
         try {
             String response = webClient.post()
-                    .uri("http://soa_users.railway.internal/api/users/login")
+                    .uri("http://soa_users.railway.internal:3000/api/users/login")
                     .bodyValue(credentials)
                     .retrieve()
                     .bodyToMono(String.class)
@@ -76,7 +76,7 @@ public class ESBController {
         }
         try {
             String response = webClient.patch()
-                    .uri("http://soa_users.railway.internal/api/users/" + id)
+                    .uri("http://soa_users.railway.internal:3000/api/users/" + id)
                     .bodyValue(updates)
                     .retrieve()
                     .bodyToMono(String.class)
@@ -95,7 +95,7 @@ public class ESBController {
         }
         try {
             String response = webClient.put()
-                    .uri("http://soa_users.railway.internal/api/users/delete/" + id)
+                    .uri("http://soa_users.railway.internal:3000/api/users/delete/" + id)
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
